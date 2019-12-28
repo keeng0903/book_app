@@ -1,22 +1,22 @@
-<p>
-  <strong>Title:</strong>
-  <%= @review.title %>
+<p class="" >
+  <strong class="h5">Title:</strong>
+  <%= @review.title%>
 </p>
 
 <p>
-  <strong>Rate:</strong>
+  <strong class="h5">Rate:</strong>
   <%= @review.rate %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong class="h5">Description:</strong>
   <%= @review.description %>
 </p>
 
 <p>
-  <strong>Book:</strong>
+  <strong class="h5">Book:</strong>
   <%= @review.book_id %>
 </p>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', book_path(@review.book_id) %>
+<%= link_to 'Edit', edit_review_path(@review), class:"show-button" %> |
+<%= link_to 'Back', book_path(@review.book_id),class:"back-button" %>

@@ -1,33 +1,35 @@
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @book.author %>
-</p>
+  <h1 class="my-4"> <strong>Title:</strong>
+    <small><%= @book.title %></small>
+  </h1>
+  <div class="row">
+    <div class="col-md-8">
+      <%= image_tag(@book.picture_url, class:"w-100" ) if @book.picture.present? %>
+    </div>
+    <div class="col-md-4">
+	<%= link_to 'Edit', edit_book_path(@book) ,class:"edit-button"%> |
+	<%= link_to 'Back', books_path ,class:"edit-button"%>
+      <h3 class="mt-5 ">  <strong>Author:</strong> <%= @book.author %></h3>
+      <h3 class="my-3"> <strong>Description:</strong>
+  <%= @book.description %></h3>
+  <br>
+  <strong>Review Section</strong>
+  <%= render partial: 'reviews/form', locals: { review: @review } %>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @book.description %>
-</p>
 
-<p>
-  <strong>Picture:</strong>
-  <%= image_tag(@book.picture_url, width: 400) if @book.picture.present? %>
-  <h3>Reviews</h3>
+<h3 class="mt-5 container-fluid review-title text-center h1 font-weight-lighter">Reviews</h3>
 	<% @reviews.each do |review| %>
-	  <div>
-	    <strong><%= review.title %></strong>
-	    <br>
-	    <p><%= review.description %></p>
-	    <p><%= link_to 'More', review %></p>
-	    <p><%= link_to 'Delete', review_path(review), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+	  <div class="container-fluid review-show mt-3">
+	    <p style="padding-top:10px; font-weight:300;font-size:30px"><%= review.title %></p>
+	    <p><%= review.description%></p>
+		<div class="d-flex pt-2 button-container">
+	    <p><%= link_to 'More', review,class:"mr-3 more-button" %></p>
+	    <p><%= link_to 'Delete', review_path(review), method: :delete, data: { confirm: 'Are you sure?' } ,class:"mr-2 delete-button" %></p>
 	  </div>
+	  <div class="container-fluid sep-line text-center">
+	  </div>
+</div>
 	<% end %>
-	<%= render partial: 'reviews/form', locals: { review: @review } %>
-</p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+	

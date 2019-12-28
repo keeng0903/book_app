@@ -6,12 +6,13 @@
     <%= csp_meta_tag %>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary m-0">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary m-0">
     <div class="container">
       <a class="navbar-brand" href="/">Book Management App</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
@@ -22,16 +23,13 @@
           <li class="nav-item active">
             <a class="nav-link" href="/books">Books</a>
           </li>
-          
           <li class="nav-item">
             <%= link_to 'New Book', new_book_path, class: "nav-link" %>
           </li>
-
           <li class="nav-item">
             <a class="nav-link" href="/pages/info">Info</a>
           </li>
-        </ul>
-
+        </ul> 
         <p class="navbar-text float-right">
         <% if user_signed_in? %>
           Logged in as <strong><%= current_user.firstName %></strong>.

@@ -1,39 +1,37 @@
-<h2>Sign up</h2>
-
+<body>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Login</h5>
+            <form class="form-signin">
+              <div class="form-label-group">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email",id:"inputEmail" ,class:"form-control", placeholder: "Email"%><br>
+                <%= f.text_field :firstName, autofocus: true, autocomplete: "email",id:"inputEmail" ,class:"form-control", placeholder: "Firstname"%><br>
+                <%= f.text_field :lastName, autofocus: true, autocomplete: "email",id:"inputEmail" ,class:"form-control", placeholder: "Lastname"%>
+              </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              <div class="form-label-group">
+                <%= f.password_field :password, autocomplete: "new-password" ,type:"password" ,id:"inputPassword" ,class:"form-control", placeholder:"Password" %><br>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password",type:"password" ,id:"inputPassword" ,class:"form-control", placeholder:"Confirm-Password"  %>
+              </div>
+              <div class="custom-control custom-checkbox mb-3">
+              <% if devise_mapping.rememberable? %>
+                      <%= f.check_box :remember_me ,type:"checkbox", class:"custom-control-input" ,id:"customCheck1"%>
+                      <%= f.label :remember_me, class:"custom-control-label" ,for:"customCheck1"%>
+                      <% end %>
+              </div>
+               <%= f.submit "Sign up" ,class:"btn btn-lg btn-primary btn-block text-uppercase" ,type:"submit" %>
+               <% end %>
+              <hr class="my-4">
+              <%= render "users/shared/links" %>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :firstName %><br />
-    <%= f.text_field :firstName, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :lastName %><br />
-    <%= f.text_field :lastName, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</body>
