@@ -5,20 +5,13 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* 1. Open folder in Terminal
 
-* System dependencies
+* 2. $ bundle install
 
-* Configuration
+* 3. $ yarn install --check-files
 
-* Database creation
+* 4. $ rails s
 
-* Database initialization
+* 5. Open browser "localhost:3000"
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
